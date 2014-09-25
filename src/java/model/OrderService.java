@@ -25,13 +25,13 @@ public class OrderService {
     private void initItemsDb(String dao) throws Exception {
         Class clazz = Class.forName(dao);
         orderDao = (IOrderDAO)clazz.newInstance();
-        menuList = orderDao.getCurrentMenuChoices();
+        menuList = orderDao.getCurrentMenuChoice();
         orderList = new ArrayList<MenuItem>();
     }
     
     public void placeOrder() {
         orderDao.saveOrder(orderList);
-        menuList = orderDao.getCurrentMenuChoices();
+        menuList = orderDao.getCurrentMenuChoice();
         orderList = new ArrayList<MenuItem>();
     }
         
